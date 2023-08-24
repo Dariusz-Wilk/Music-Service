@@ -1,0 +1,72 @@
+$color-light: #fff;
+$font-main: 'Source Sans 3', sans-serif;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	background-color: #333;
+	color: $color-light;
+	font-family: $font-main;
+}
+
+.container {
+	max-width: 784px;
+	margin: 0 auto;
+}
+
+// ========== HEADER  ===============
+
+.splash {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-image: url('../images/background.jpg');
+	background-position: center;
+	background-size: cover;
+
+	&__shadow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(255, 255, 255, 0) 80%
+		);
+	}
+
+	&__title {
+		font-size: 130px;
+		font-weight: 900;
+		margin-left: 50px;
+		letter-spacing: 80px;
+		text-transform: uppercase;
+		line-height: 1.2;
+	}
+
+	&__subtitle {
+		width: 170px;
+		font-size: 26px;
+		letter-spacing: 7px;
+		text-transform: uppercase;
+		text-align: center;
+		margin-right: 15px;
+		line-height: 1.7;
+
+		span {
+			margin: 0 40px;
+		}
+	}
+}
