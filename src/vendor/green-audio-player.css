@@ -64,7 +64,7 @@
 	position: relative;
 }
 .green-audio-player .slider .gap-progress {
-	background-color: #44bfa3;
+	background-color: #c93037;
 	border-radius: inherit;
 	position: absolute;
 	pointer-events: none;
@@ -73,7 +73,7 @@
 	height: 14px;
 	width: 14px;
 	border-radius: 8px;
-	background-color: #9e2e34;
+	background-color: #c93037;
 	position: absolute;
 	pointer-events: all;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.32);
@@ -136,7 +136,7 @@
 	outline: none;
 }
 .green-audio-player .volume .volume__button.open path {
-	fill: #44bfa3;
+	fill: #c93037;
 }
 .green-audio-player .volume .volume__controls {
 	width: 30px;
