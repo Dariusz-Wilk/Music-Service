@@ -10,7 +10,7 @@ $font-main: 'Source Sans 3', sans-serif;
 }
 
 body {
-	background-color: #333;
+	background-color: #000;
 	color: $color-light;
 	font-family: $font-main;
 }
@@ -68,5 +68,23 @@ body {
 		span {
 			margin: 0 40px;
 		}
+	}
+}
+
+// ========== NAVIGATION =============
+
+.navigation {
+	text-align: center;
+
+	.container {
+		padding: 70px 0;
+	}
+	a {
+		padding: 5px 20px;
+		text-decoration: none;
+		color: $color-light;
+		text-transform: uppercase;
+		font-size: 22px;
+		margin: 0 13px;
 	}
 }
