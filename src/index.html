@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;700;900&display=swap" rel="stylesheet">
 
+
+    <link rel="stylesheet" type="text/css" href="./vendor/green-audio-player.css">
+
+
     <link rel="stylesheet" href="css/style.css">
   </head>
 
@@ -34,12 +38,88 @@
 
     </header>
 
+    <section class="home" id="home">
+      <div class="container songs-container">
+        <div class="home__song-wrapper">
+
+          <h3 class="home__song-title">JOHN DOE - Where did my love go?</h3>
+
+          <div class="gap-example">
+            <audio>
+              <source src="./songs/At_The_Top_David_Renda.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+
+          <div class="home__song-stats">
+            <p class="category">Categories: <span class="categories-name">Slow, melancholy</span></p>
+            <p class="ranking"><span class="ranking-number">#3</span> in the ranking</pran>
+          </div>
+        </div>
+
+        <div class="home__song-wrapper">
+
+          <h3 class="home__song-title">JOHN DOE - Where did my love go?</h3>
+
+          <div class="gap-example2">
+            <audio>
+              <source src="./songs/BASS_TRAP_Steve_Oxen.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+
+          <div class="home__song-stats">
+            <p class="category">Categories: <span class="categories-name">Slow, melancholy</span></p>
+            <p class="ranking"><span class="ranking-number">#3</span> in the ranking</pran>
+          </div>
+        </div>
+
+        <div class="home__song-wrapper">
+
+          <h3 class="home__song-title">JOHN DOE - Where did my love go?</h3>
+
+          <div class="gap-example3">
+            <audio>
+              <source src="./songs/Western_Adventures_-_David_Fesliyan.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+
+          <div class="home__song-stats">
+            <p class="category">Categories: <span class="categories-name">Slow, melancholy</span></p>
+            <p class="ranking"><span class="ranking-number">#3</span> in the ranking</pran>
+          </div>
+        </div>
+
+        <div class="home__song-wrapper">
+
+          <h3 class="home__song-title">JOHN DOE - Where did my love go?</h3>
+
+          <div class="gap-example4">
+            <audio>
+              <source src="./songs/Silly_Feet_David_Renda.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+
+          <div class="home__song-stats">
+            <p class="category">Categories: <span class="categories-name">Slow, melancholy</span></p>
+            <p class="ranking"><span class="ranking-number">#3</span> in the ranking</pran>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </section>
 
 
 
 
 
-    <script src="./js/app.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+
+    <script src="./vendor/green-audio-player.js"></script>
+
+    <script src="./js/app.js" type="module"></script>
   </body>
 
 </html>
