@@ -20,7 +20,7 @@ header {
 }
 
 .container {
-	max-width: 884px;
+	max-width: 824px;
 	margin: 0 auto;
 }
 
@@ -209,5 +209,17 @@ header {
 			font-size: 22px;
 			letter-spacing: 6px;
 		}
+	}
+}
+
+// ========== FOOTER ============
+
+.footer {
+	&__text {
+		padding: 28px 0;
+		font-size: 18px;
+		text-align: center;
+		letter-spacing: 3px;
+		color: $color-light;
 	}
 }
