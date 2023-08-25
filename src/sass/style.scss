@@ -15,8 +15,12 @@ body {
 	font-family: $font-main;
 }
 
+header {
+	overflow: hidden;
+}
+
 .container {
-	max-width: 784px;
+	max-width: 884px;
 	margin: 0 auto;
 }
 
@@ -91,9 +95,10 @@ body {
 
 // ========== HOME PAGE =================
 
+// ======= songs =========
 .home {
 	&__song-wrapper {
-		margin: 0 auto 30px;
+		margin: 0 auto 43px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -108,5 +113,101 @@ body {
 		display: flex;
 		justify-content: space-between;
 		width: 43%;
+	}
+}
+
+// ========= subscribe ============
+
+.subscribe {
+	position: relative;
+	height: 90vh;
+	margin-top: 13vh;
+	background-image: url('../images/subscribe.jpg');
+	background-position: center;
+	background-size: cover;
+
+	&__title {
+		display: inline-block;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		text-align: center;
+		transform: translateY(-50%);
+		text-transform: uppercase;
+		font-size: 64px;
+		letter-spacing: 14px;
+		font-weight: 400;
+
+		&--bold {
+			font-weight: 700;
+		}
+	}
+
+	&__info-wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		padding: 0 23px;
+	}
+
+	&__join-btn {
+		background-color: #be3037;
+		font-size: 25px;
+		padding: 28px 21px;
+		color: $color-light;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		border: none;
+		border-radius: 5px;
+		font-weight: 700;
+		cursor: pointer;
+		margin-bottom: 60px;
+	}
+
+	&__image-name-wrap {
+		position: relative;
+		display: flex;
+	}
+
+	&__name-wrap {
+		position: absolute;
+		bottom: 25%;
+		left: -8%;
+		transform: translate(-50%, 50%);
+	}
+
+	&__artist-name,
+	&__artist-name2 {
+		font-size: 55px;
+		letter-spacing: 8px;
+		font-weight: 900;
+		span {
+			color: #be3037;
+		}
+	}
+
+	&__artist-name2 {
+		margin-left: 45px;
+	}
+
+	&__artist-img {
+		margin-top: 107px;
+		height: 375px;
+	}
+
+	&__description {
+		text-align: right;
+		margin-top: 15px;
+
+		h4 {
+			text-transform: uppercase;
+			font-size: 28px;
+			letter-spacing: 4px;
+		}
+
+		p {
+			font-size: 22px;
+			letter-spacing: 6px;
+		}
 	}
 }
