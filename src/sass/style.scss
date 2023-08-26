@@ -100,7 +100,7 @@ header {
 .home {
 	display: none;
 	&__song-wrapper {
-		margin: 0 auto 43px;
+		margin: 0 auto 60px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -113,8 +113,10 @@ header {
 
 	&__song-stats {
 		display: flex;
-		justify-content: space-between;
-		width: 43%;
+		justify-content: center;
+		p {
+			margin: 0 10px;
+		}
 	}
 }
 
@@ -229,6 +231,7 @@ header {
 // ============= SECTION SEARCH ==============
 
 .search {
+	display: none;
 	&__title {
 		text-transform: uppercase;
 		text-align: center;
@@ -279,5 +282,45 @@ header {
 		margin: 60px 0;
 		font-size: 18px;
 		letter-spacing: 6px;
+	}
+}
+
+// ========== SECTION DISCOVER ==========
+
+.discover {
+	&__title {
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 36px;
+		letter-spacing: 12px;
+		font-weight: 400;
+		margin: 20px 0 25px;
+	}
+
+	&__text {
+		text-align: center;
+		margin: 60px 0;
+		font-size: 18px;
+		letter-spacing: 6px;
+	}
+
+	&__song-wrapper {
+		margin: 0 auto 60px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__song-title {
+		font-size: 18px;
+		letter-spacing: 2px;
+	}
+
+	&__song-stats {
+		display: flex;
+		justify-content: center;
+		p {
+			margin: 0 10px;
+		}
 	}
 }
