@@ -25,6 +25,12 @@ header {
 	margin: 0 auto;
 }
 
+.pages {
+	.active {
+		display: block;
+	}
+}
+
 // ========== HEADER  ===============
 
 .splash {
@@ -84,7 +90,7 @@ header {
 	.container {
 		padding: 80px 0 60px;
 	}
-	a {
+	.nav-link {
 		padding: 5px 20px;
 		text-decoration: none;
 		color: $color-light;
@@ -288,6 +294,7 @@ header {
 // ========== SECTION DISCOVER ==========
 
 .discover {
+	display: none;
 	&__title {
 		text-transform: uppercase;
 		text-align: center;
