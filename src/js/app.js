@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import { select, classNames } from './settings.js';
+import { select, classNames, settings } from './settings.js';
 import GreenAudioPlayer from '../vendor/green-audio-player.js';
 
 new GreenAudioPlayer('.gap-example');
@@ -41,8 +41,23 @@ const app = {
 			page.classList.toggle(classNames.pages.active, page.id === pageId);
 		}
 	},
+	initData: function () {
+		this.data = {};
+		const url = `${settings.db.url}/${settings.db.songs}`;
+		console.log(url);
+
+		fetch(url)
+			.then(function (rawResponse) {
+				return rawResponse.json();
+			})
+			.then(parsedResponse => {
+				console.log(parsedResponse);
+				this.data.songs = parsedResponse;
+			});
+	},
 	init: function () {
 		this.initPages();
+		this.initData();
 	},
 };
 

@@ -16,3 +16,10 @@ export const classNames = {
 		active: 'active',
 	},
 };
+
+export const settings = {
+	db: {
+		url: 'http://localhost:3131',
+		songs: 'songs',
+	},
+};
