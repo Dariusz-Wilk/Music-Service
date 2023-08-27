@@ -1,12 +1,7 @@
 /* eslint-disable indent */
 import { select, classNames, settings } from './settings.js';
 import GreenAudioPlayer from '../vendor/green-audio-player.js';
-
-new GreenAudioPlayer('.gap-example');
-new GreenAudioPlayer('.gap-example2');
-new GreenAudioPlayer('.gap-example3');
-new GreenAudioPlayer('.gap-example4');
-new GreenAudioPlayer('.gap-example5');
+import Song from './Song.js';
 
 const app = {
 	initPages: function () {
@@ -51,9 +46,23 @@ const app = {
 				return rawResponse.json();
 			})
 			.then(parsedResponse => {
-				console.log(parsedResponse);
 				this.data.songs = parsedResponse;
+
+				this.initMenu();
 			});
+	},
+	initMenu: function () {
+		for (let song of this.data.songs) {
+			console.log(song);
+			new Song(song.id, song);
+		}
+		this.initPlayer();
+	},
+	initPlayer() {
+		GreenAudioPlayer.init({
+			selector: '.music-player',
+			stopOthersOnPlay: true,
+		});
 	},
 	init: function () {
 		this.initPages();

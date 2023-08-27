@@ -41,72 +41,7 @@
     <div class="pages">
 
       <section class="home" id="home">
-        <div class="container songs-container">
-          <div class="home__song-wrapper">
-
-            <h3 class="home__song-title">JOHN DOE - Where did my love go?</h3>
-
-            <div class="gap-example">
-              <audio>
-                <source src="./songs/At_The_Top_David_Renda.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-
-            <div class="home__song-stats">
-              <p class="category">Categories: <span class="categories-name">Slow, melancholy</span></p>
-              <p class="ranking"><span class="ranking-number">#3</span> in the ranking</p>
-            </div>
-          </div>
-
-          <div class="home__song-wrapper">
-
-            <h3 class="home__song-title">JOHN DOE - Where did my love go?</h3>
-
-            <div class="gap-example2">
-              <audio>
-                <source src="./songs/BASS_TRAP_Steve_Oxen.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-
-            <div class="home__song-stats">
-              <p class="category">Categories: <span class="categories-name">Slow, melancholy</span></p>
-              <p class="ranking"><span class="ranking-number">#3</span> in the ranking</p>
-            </div>
-          </div>
-
-          <div class="home__song-wrapper">
-
-            <h3 class="home__song-title">JOHN DOE - Where did my love go?</h3>
-
-            <div class="gap-example3">
-              <audio>
-                <source src="./songs/Western_Adventures_-_David_Fesliyan.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-
-            <div class="home__song-stats">
-              <p class="category">Categories: <span class="categories-name">Slow, melancholy</span></p>
-              <p class="ranking"><span class="ranking-number">#3</span> in the ranking</p>
-            </div>
-          </div>
-
-          <div class="home__song-wrapper">
-
-            <h3 class="home__song-title">JOHN DOE - Where did my love go?</h3>
-
-            <div class="gap-example4">
-              <audio>
-                <source src="./songs/Silly_Feet_David_Renda.mp3" type="audio/mpeg">
-              </audio>
-            </div>
-
-            <div class="home__song-stats">
-              <p class="category">Categories: <span class="categories-name">Slow, melancholy</span></p>
-              <p class="ranking"><span class="ranking-number">#3</span> in the ranking</p>
-            </div>
-          </div>
-
-        </div>
+        <div class="container songs-container"></div>
 
         <div class="subscribe">
           <h2 class="subscribe__title">Subscribe <span class="subscribe__title--bold">now</span></h2>
@@ -164,7 +99,7 @@
 
             <h3 class="discover__song-title">JOHN DOE - Where did my love go?</h3>
 
-            <div class="gap-example5">
+            <div class="gap-example">
               <audio>
                 <source src="./songs/BASS_TRAP_Steve_Oxen.mp3" type="audio/mpeg">
               </audio>
@@ -186,10 +121,29 @@
     </div>
 
 
+    <script id="template-song-box" type="text/x-handlebars-template">
+    <div class="home__song-wrapper">
+    
+      <h3 class="home__song-title">{{name filename }} - {{ title }}</h3>
+    
+      <div class="music-player">
+        <audio>
+          <source src="./songs/{{filename}}" type="audio/mpeg">
+        </audio>
+      </div>
+    
+      <div class="home__song-stats">
+        <p class="category">Categories: <span class="categories-name">{{separeted categories }}</span></p>
+        <p class="ranking"><span class="ranking-number">#{{ranking}}</span> in the ranking</p>
+      </div>
+    </div>
+  </script>
 
 
 
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
 
