@@ -18,7 +18,6 @@ Handlebars.registerHelper('name', function (context) {
 Handlebars.registerHelper('separeted', function (data) {
 	let str = data.join(', ').toLowerCase();
 	str = str[0].toUpperCase() + str.substring(1);
-	console.log(str);
 	return str;
 });
 

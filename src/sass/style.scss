@@ -98,6 +98,9 @@ header {
 		font-size: 22px;
 		margin: 0 13px;
 	}
+	.nav-link.active {
+		color: $color-main;
+	}
 }
 
 // ========== HOME PAGE =================

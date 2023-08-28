@@ -35,11 +35,15 @@ const app = {
 		for (let page of this.pages) {
 			page.classList.toggle(classNames.pages.active, page.id === pageId);
 		}
+
+		for (let link of this.navLinks) {
+			const linkId = link.hash.replace('#', '');
+			link.classList.toggle(classNames.nav.active, linkId == pageId);
+		}
 	},
 	initData: function () {
 		this.data = {};
 		const url = `${settings.db.url}/${settings.db.songs}`;
-		console.log(url);
 
 		fetch(url)
 			.then(function (rawResponse) {
@@ -53,7 +57,6 @@ const app = {
 	},
 	initMenu: function () {
 		for (let song of this.data.songs) {
-			console.log(song);
 			new Song(song.id, song);
 		}
 		this.initPlayer();
