@@ -84,7 +84,11 @@
           <button type="submit" class="btn search__btn">Search</button>
         </form>
 
-        <p class="search__result-text">We have found 3 songs...</p>
+        <p class="search__result-text"></p>
+
+        <div class="search__results-wrapper">
+
+        </div>
 
       </section>
 
@@ -126,7 +130,7 @@
     
       <h3 class="home__song-title">{{name filename }} - {{ title }}</h3>
     
-      <div class="music-player">
+      <div class="{{ test }}-player">
         <audio>
           <source src="./songs/{{filename}}" type="audio/mpeg">
         </audio>

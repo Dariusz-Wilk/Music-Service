@@ -1,21 +1,21 @@
 /* eslint-disable indent */
-import { templates, select } from './settings.js';
+import { templates } from './settings.js';
 import utils from './utils.js';
 
 class Song {
-	constructor(id, data) {
-		this.id - id;
+	constructor(data, container, test) {
 		this.data = data;
-		this.renderInMenu();
+		this.container = container;
+		this.data.test = test;
+		this.renderInMenu(container);
 	}
 
-	renderInMenu() {
+	renderInMenu(songsContainer) {
 		const generatedHTML = templates.homePageSong(this.data);
 
 		this.element = utils.createDOMFromHTML(generatedHTML);
 
-		const menuContainer = document.querySelector(select.containerOf.songs);
-		menuContainer.appendChild(this.element);
+		songsContainer.appendChild(this.element);
 	}
 }
 

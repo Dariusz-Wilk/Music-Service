@@ -2,6 +2,7 @@
 import { select, classNames, settings } from './settings.js';
 import GreenAudioPlayer from '../vendor/green-audio-player.js';
 import Song from './Song.js';
+import Search from './Search.js';
 
 const app = {
 	initPages: function () {
@@ -53,11 +54,13 @@ const app = {
 				this.data.songs = parsedResponse;
 
 				this.initMenu();
+				this.initSearching();
 			});
 	},
 	initMenu: function () {
+		const songsContainer = document.querySelector(select.containerOf.songs);
 		for (let song of this.data.songs) {
-			new Song(song.id, song);
+			new Song(song, songsContainer, 'music');
 		}
 		this.initPlayer();
 	},
@@ -66,6 +69,11 @@ const app = {
 			selector: '.music-player',
 			stopOthersOnPlay: true,
 		});
+	},
+
+	initSearching: function () {
+		const searchForm = document.querySelector('#search');
+		new Search(this.data.songs, searchForm);
 	},
 	init: function () {
 		this.initPages();
