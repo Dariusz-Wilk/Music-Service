@@ -19,7 +19,8 @@
 
 	&__song-stats {
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
+		width: 365px;
 		p {
 			margin: 0 10px;
 		}
@@ -118,6 +119,40 @@
 		p {
 			font-size: 22px;
 			letter-spacing: 6px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.home {
+		&__song-wrapper {
+			margin: 0 auto 60px;
+		}
+
+		&__song-title {
+			font-size: 22px;
+		}
+
+		&__song-stats {
+			width: 400px;
+
+			p {
+				font-size: 18px;
+			}
+		}
+	}
+
+	.subscribe {
+		.container {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 20px;
+		}
+
+		&__artist-img {
+			margin: 0;
 		}
 	}
 }

@@ -219,3 +219,9 @@
 	width: 1px;
 	word-wrap: normal;
 }
+
+@media (max-width: 768px) {
+	.green-audio-player {
+		width: 400px;
+	}
+}

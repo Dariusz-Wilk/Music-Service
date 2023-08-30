@@ -19,3 +19,13 @@
 		color: $color-main;
 	}
 }
+
+@media (max-width: 768px) {
+	.navigation {
+		.nav-link {
+			padding: 10px 20px;
+			font-size: 26px;
+			margin: 0 20px;
+		}
+	}
+}

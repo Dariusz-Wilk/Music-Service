@@ -11,3 +11,11 @@
 		color: $color-light;
 	}
 }
+
+@media (max-width: 768px) {
+	.footer {
+		&__text {
+			font-size: 20px;
+		}
+	}
+}
