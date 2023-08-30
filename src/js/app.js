@@ -60,13 +60,13 @@ const app = {
 	initMenu: function () {
 		const songsContainer = document.querySelector(select.containerOf.songs);
 		for (let song of this.data.songs) {
-			new Song(song, songsContainer, 'music');
+			new Song(song, songsContainer);
 		}
-		this.initPlayer();
+		this.initPlayer(select.containerOf.songs);
 	},
-	initPlayer() {
+	initPlayer(container) {
 		GreenAudioPlayer.init({
-			selector: '.music-player',
+			selector: `${container} .music-player`,
 			stopOthersOnPlay: true,
 		});
 	},

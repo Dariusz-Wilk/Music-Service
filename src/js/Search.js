@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 import Song from './Song.js';
+import { select } from './settings.js';
 import GreenAudioPlayer from '../vendor/green-audio-player.js';
 
 class Search {
@@ -19,7 +20,9 @@ class Search {
 		this.searchResultText = searchForm.querySelector('.search__result-text');
 	}
 	initSearch() {
-		const searchQuery = this.searchInput.value.toLowerCase().replace(' ', '_');
+		const searchQuery = this.searchInput.value
+			.toLowerCase()
+			.replaceAll(' ', '_');
 		console.log(searchQuery);
 		this.filteredArr = this.data.filter(obj =>
 			obj.filename.toLowerCase().includes(searchQuery)
@@ -37,15 +40,15 @@ class Search {
 
 			this.resultContainer.innerHTML = '';
 			for (let item of this.filteredArr) {
-				new Song(item, this.resultContainer, 'search');
+				new Song(item, this.resultContainer);
 			}
-			this.initPlayer();
+			this.initPlayer(select.containerOf.search);
 		});
 	}
 
-	initPlayer() {
+	initPlayer(container) {
 		GreenAudioPlayer.init({
-			selector: '.search-player',
+			selector: `${container} .music-player`,
 			stopOthersOnPlay: true,
 		});
 	}

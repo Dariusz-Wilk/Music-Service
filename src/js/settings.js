@@ -3,6 +3,7 @@ export const select = {
 	containerOf: {
 		pages: '.pages',
 		songs: '.songs-container',
+		search: '.search__results-wrapper',
 	},
 	nav: {
 		navLinks: '.nav-link',

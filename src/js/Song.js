@@ -3,10 +3,9 @@ import { templates } from './settings.js';
 import utils from './utils.js';
 
 class Song {
-	constructor(data, container, test) {
+	constructor(data, container) {
 		this.data = data;
 		this.container = container;
-		this.data.test = test;
 		this.renderInMenu(container);
 	}
 
