@@ -1,8 +1,9 @@
 /* eslint-disable indent */
 import { select, classNames, settings } from './settings.js';
 import GreenAudioPlayer from '../vendor/green-audio-player.js';
-import Song from './Song.js';
-import Search from './Search.js';
+import Song from './components/Song.js';
+import Search from './components/Search.js';
+import Discover from './components/Discover.js';
 
 const app = {
 	initPages: function () {
@@ -23,6 +24,9 @@ const app = {
 
 		for (let link of this.navLinks) {
 			link.addEventListener('click', e => {
+				if (link.hash == '#discover') {
+					this.initDiscover();
+				}
 				e.preventDefault();
 				const linkId = link.hash.replace('#', '');
 				this.activatePage(linkId);
@@ -55,6 +59,7 @@ const app = {
 
 				this.initMenu();
 				this.initSearching();
+				this.initDiscover();
 			});
 	},
 	initMenu: function () {
@@ -74,6 +79,13 @@ const app = {
 	initSearching: function () {
 		const searchForm = document.querySelector('#search');
 		new Search(this.data.songs, searchForm);
+	},
+
+	initDiscover: function () {
+		const discoverContainer = document.querySelector(
+			select.containerOf.discover
+		);
+		new Discover(this.data.songs, discoverContainer);
 	},
 	init: function () {
 		this.initPages();

@@ -241,6 +241,7 @@ header {
 
 .search {
 	display: none;
+
 	&__title {
 		text-transform: uppercase;
 		text-align: center;
@@ -291,6 +292,10 @@ header {
 		margin: 60px 0;
 		font-size: 18px;
 		letter-spacing: 6px;
+	}
+
+	&__results-wrapper {
+		min-height: 40vh;
 	}
 }
 

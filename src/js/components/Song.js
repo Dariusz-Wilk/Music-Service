@@ -1,6 +1,6 @@
 /* eslint-disable indent */
-import { templates } from './settings.js';
-import utils from './utils.js';
+import { templates } from '../settings.js';
+import utils from '../utils.js';
 
 class Song {
 	constructor(data, container) {

@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import Song from './Song.js';
-import { select } from './settings.js';
-import GreenAudioPlayer from '../vendor/green-audio-player.js';
+import { select } from '../settings.js';
+import GreenAudioPlayer from '../../vendor/green-audio-player.js';
 
 class Search {
 	constructor(data, searchForm) {
@@ -10,7 +10,6 @@ class Search {
 
 		this.getElements(searchForm);
 		this.initAction();
-		console.log(this);
 	}
 
 	getElements(searchForm) {

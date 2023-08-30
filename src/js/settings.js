@@ -4,6 +4,7 @@ export const select = {
 		pages: '.pages',
 		songs: '.songs-container',
 		search: '.search__results-wrapper',
+		discover: '.discover__songs-wrapper',
 	},
 	nav: {
 		navLinks: '.nav-link',
