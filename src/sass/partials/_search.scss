@@ -1,0 +1,63 @@
+@import './variables';
+
+// ============= SECTION SEARCH ==============
+
+.search {
+	display: none;
+
+	&__title {
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 36px;
+		letter-spacing: 12px;
+		font-weight: 400;
+		margin: 20px 0 25px;
+	}
+
+	&__form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__label {
+		font-size: 18px;
+		letter-spacing: 2px;
+	}
+
+	&__input {
+		width: 240px;
+		padding: 10px 10px;
+		color: #171717;
+		margin: 0 20px;
+		border: none;
+		border-radius: 8px;
+		outline: none;
+		font-weight: 700;
+		font-size: 16px;
+	}
+
+	&__btn {
+		background-color: $color-main;
+		font-size: 14px;
+		padding: 12px 7px;
+		color: $color-light;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		border: none;
+		border-radius: 5px;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	&__result-text {
+		text-align: center;
+		margin: 60px 0;
+		font-size: 18px;
+		letter-spacing: 6px;
+	}
+
+	&__results-wrapper {
+		min-height: 40vh;
+	}
+}
