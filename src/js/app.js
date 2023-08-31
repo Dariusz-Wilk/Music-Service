@@ -101,6 +101,8 @@ const app = {
 		closeBtn.addEventListener('click', e => {
 			closeModal(e);
 		});
+
+		overlay.addEventListener('click', closeModal);
 	},
 
 	initSearching: function () {

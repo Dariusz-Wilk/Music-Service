@@ -20,28 +20,32 @@ class Search {
 	}
 	initSearch() {
 		const searchQuery = this.searchInput.value
+			.trim()
 			.toLowerCase()
 			.replaceAll(' ', '_');
-		console.log(searchQuery);
 		this.filteredArr = this.data.filter(obj =>
 			obj.filename.toLowerCase().includes(searchQuery)
 		);
-		console.log(this.filteredArr);
 	}
 
 	initAction() {
 		this.searchBtn.addEventListener('click', e => {
 			e.preventDefault();
-			this.initSearch();
-			this.searchResultText.textContent = `We have found ${
-				this.filteredArr.length
-			} ${this.filteredArr.length == 1 ? 'song...' : 'songs...'}`;
+			if (this.searchInput.value.trim() == '') {
+				this.resultContainer.innerHTML = '';
+				this.searchResultText.textContent = `please enter at least one character`;
+			} else {
+				this.initSearch();
+				this.searchResultText.textContent = `We have found ${
+					this.filteredArr.length
+				} ${this.filteredArr.length == 1 ? 'song...' : 'songs...'}`;
 
-			this.resultContainer.innerHTML = '';
-			for (let item of this.filteredArr) {
-				new Song(item, this.resultContainer);
+				this.resultContainer.innerHTML = '';
+				for (let item of this.filteredArr) {
+					new Song(item, this.resultContainer);
+				}
+				this.initPlayer(select.containerOf.search);
 			}
-			this.initPlayer(select.containerOf.search);
 		});
 	}
 
