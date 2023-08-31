@@ -48,3 +48,17 @@
 		}
 	}
 }
+
+@media (max-width: 432px) {
+	.splash {
+		&__title {
+			font-size: 70px;
+			margin: 0 0 0 18px;
+			letter-spacing: 35px;
+		}
+
+		&__subtitle {
+			font-size: 22px;
+		}
+	}
+}

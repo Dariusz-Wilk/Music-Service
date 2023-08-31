@@ -52,3 +52,14 @@
 		}
 	}
 }
+@media (max-width: 432px) {
+	.discover {
+		&__title {
+			font-size: 35px;
+		}
+
+		&__text {
+			font-size: 18px;
+		}
+	}
+}

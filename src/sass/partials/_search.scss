@@ -89,3 +89,28 @@
 		}
 	}
 }
+
+@media (max-width: 432px) {
+	.search {
+		&__title {
+			font-size: 35px;
+		}
+
+		&__form {
+			flex-direction: column;
+		}
+
+		&__input {
+			margin: 15px 0;
+		}
+
+		&__btn {
+			font-size: 17px;
+			padding: 12px 10px;
+		}
+
+		&__result-text {
+			font-size: 18px;
+		}
+	}
+}

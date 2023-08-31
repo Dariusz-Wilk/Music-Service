@@ -156,3 +156,74 @@
 		}
 	}
 }
+
+@media (max-width: 432px) {
+	.home {
+		&__song-wrapper {
+			margin: 0 auto 60px;
+		}
+
+		&__song-title {
+			font-size: 22px;
+			text-align: center;
+		}
+
+		&__song-stats {
+			width: 350px;
+			display: flex;
+			align-items: center;
+
+			.category {
+				display: flex;
+				flex-direction: column;
+			}
+
+			p {
+				font-size: 18px;
+			}
+		}
+	}
+
+	// subscribe
+
+	.subscribe {
+		margin-top: 20vh;
+
+		&__title {
+			font-size: 50px;
+			letter-spacing: 14px;
+		}
+
+		&__info-wrapper {
+			flex-direction: column;
+		}
+
+		&__join-btn {
+			font-size: 20px;
+			margin-bottom: 30px;
+		}
+
+		&__artist-name,
+		&__artist-name2 {
+			font-size: 43px;
+			letter-spacing: 5px;
+		}
+
+		&__artist-name2 {
+			margin-left: 35px;
+		}
+
+		&__artist-img {
+			margin-top: 0;
+			height: 250px;
+		}
+
+		&__description {
+			margin-top: 25px;
+
+			p {
+				font-size: 20px;
+			}
+		}
+	}
+}
