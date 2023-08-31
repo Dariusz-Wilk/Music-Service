@@ -76,6 +76,33 @@ const app = {
 		});
 	},
 
+	initModal: function () {
+		const modal = document.querySelector('.modal');
+		const overlay = document.querySelector('.overlay');
+		const joinBtn = document.querySelector('.subscribe__join-btn');
+		const closeBtn = document.querySelector('.btn--close-modal');
+
+		const openModal = function (e) {
+			e.preventDefault();
+			modal.classList.remove('hidden');
+			overlay.classList.remove('hidden');
+		};
+
+		const closeModal = function (e) {
+			e.preventDefault();
+			modal.classList.add('hidden');
+			overlay.classList.add('hidden');
+		};
+
+		joinBtn.addEventListener('click', e => {
+			openModal(e);
+		});
+
+		closeBtn.addEventListener('click', e => {
+			closeModal(e);
+		});
+	},
+
 	initSearching: function () {
 		const searchForm = document.querySelector('#search');
 		new Search(this.data.songs, searchForm);
@@ -90,6 +117,7 @@ const app = {
 	init: function () {
 		this.initPages();
 		this.initData();
+		this.initModal();
 	},
 };
 
