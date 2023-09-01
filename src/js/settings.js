@@ -9,6 +9,12 @@ export const select = {
 	nav: {
 		navLinks: '.nav-link',
 	},
+	searchForm: {
+		input: '.search__input',
+		button: '.search__btn',
+		resultContainer: '.search__results-wrapper',
+		resultText: '.search__result-text',
+	},
 	templateOf: {
 		menuSong: '#template-song-box',
 	},
@@ -27,6 +33,7 @@ export const settings = {
 	db: {
 		url: 'http://localhost:3131',
 		songs: 'songs',
+		authors: 'authors',
 	},
 };
 

@@ -46,21 +46,29 @@ const app = {
 			link.classList.toggle(classNames.nav.active, linkId == pageId);
 		}
 	},
-	initData: function () {
-		this.data = {};
-		const url = `${settings.db.url}/${settings.db.songs}`;
+	initData: async function () {
+		try {
+			this.data = {};
+			const urlSongs = `${settings.db.url}/${settings.db.songs}`;
+			const urlAuthors = `${settings.db.url}/${settings.db.authors}`;
 
-		fetch(url)
-			.then(function (rawResponse) {
-				return rawResponse.json();
-			})
-			.then(parsedResponse => {
-				this.data.songs = parsedResponse;
+			const [songsResponse, authorsResponse] = await Promise.all([
+				fetch(urlSongs),
+				fetch(urlAuthors),
+			]);
+			const [songs, authors] = await Promise.all([
+				songsResponse.json(),
+				authorsResponse.json(),
+			]);
+			this.data.songs = songs;
+			this.data.authors = authors;
 
-				this.initMenu();
-				this.initSearching();
-				this.initDiscover();
-			});
+			this.initMenu();
+			this.initDiscover();
+			this.initSearching();
+		} catch (err) {
+			console.err(err);
+		}
 	},
 	initMenu: function () {
 		const songsContainer = document.querySelector(select.containerOf.songs);
@@ -107,7 +115,7 @@ const app = {
 
 	initSearching: function () {
 		const searchForm = document.querySelector('#search');
-		new Search(this.data.songs, searchForm);
+		new Search(this.data, searchForm);
 	},
 
 	initDiscover: function () {

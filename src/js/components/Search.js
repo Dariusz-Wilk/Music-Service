@@ -10,22 +10,31 @@ class Search {
 
 		this.getElements(searchForm);
 		this.initAction();
+		console.log(this.data);
 	}
 
 	getElements(searchForm) {
-		this.searchInput = searchForm.querySelector('.search__input');
-		this.searchBtn = searchForm.querySelector('.search__btn');
-		this.resultContainer = searchForm.querySelector('.search__results-wrapper');
-		this.searchResultText = searchForm.querySelector('.search__result-text');
+		this.searchInput = searchForm.querySelector(select.searchForm.input);
+		this.searchBtn = searchForm.querySelector(select.searchForm.button);
+		this.resultContainer = searchForm.querySelector(
+			select.searchForm.resultContainer
+		);
+		this.searchResultText = searchForm.querySelector(
+			select.searchForm.resultText
+		);
 	}
 	initSearch() {
-		const searchQuery = this.searchInput.value
-			.trim()
-			.toLowerCase()
-			.replaceAll(' ', '_');
-		this.filteredArr = this.data.filter(obj =>
-			obj.filename.toLowerCase().includes(searchQuery)
+		const searchQuery = this.searchInput.value.trim().toLowerCase();
+		const filteredSongs = this.data.songs.filter(song =>
+			song.title.toLowerCase().includes(searchQuery)
 		);
+		const filteredAuthors = this.data.authors.filter(author =>
+			author.name.toLowerCase().includes(searchQuery)
+		);
+		const songsByAuthor = this.data.songs.filter(song =>
+			filteredAuthors.some(author => song.author === author.id)
+		);
+		this.filteredArr = [...filteredSongs, ...songsByAuthor];
 	}
 
 	initAction() {
@@ -41,7 +50,7 @@ class Search {
 				} ${this.filteredArr.length == 1 ? 'song...' : 'songs...'}`;
 
 				this.resultContainer.innerHTML = '';
-				for (let item of this.filteredArr) {
+				for (let item of this.filteredArr.flat()) {
 					new Song(item, this.resultContainer);
 				}
 				this.initPlayer(select.containerOf.search);
