@@ -34,7 +34,12 @@ class Search {
 		const songsByAuthor = this.data.songs.filter(song =>
 			filteredAuthors.some(author => song.author === author.id)
 		);
-		this.filteredArr = [...filteredSongs, ...songsByAuthor];
+		this.filteredArr = [
+			...new Set(
+				[...filteredSongs, ...songsByAuthor].map(item => JSON.stringify(item))
+			),
+		].map(item => JSON.parse(item));
+		console.log(this.filteredArr);
 	}
 
 	initAction() {
