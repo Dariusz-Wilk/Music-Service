@@ -10,7 +10,6 @@ class Search {
 
 		this.getElements(searchForm);
 		this.initAction();
-		console.log(this.data);
 	}
 
 	getElements(searchForm) {
@@ -35,7 +34,6 @@ class Search {
 			filteredAuthors.some(author => song.author === author.id)
 		);
 		this.filteredArr = [...new Set([...filteredSongs, ...songsByAuthor])];
-		console.log(this.filteredArr);
 	}
 
 	initAction() {

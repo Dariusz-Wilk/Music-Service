@@ -66,6 +66,7 @@ const app = {
 			this.initMenu();
 			this.initDiscover();
 			this.initSearching();
+			this.initCategories();
 		} catch (err) {
 			console.err(err);
 		}
@@ -123,6 +124,28 @@ const app = {
 			select.containerOf.discover
 		);
 		new Discover(this.data.songs, discoverContainer);
+	},
+	initCategories: function () {
+		const categoriesContainer = document.querySelector(
+			select.containerOf.categories
+		);
+		console.log(categoriesContainer);
+		const categories = [];
+
+		for (let song of this.data.songs) {
+			for (let cat of song.categories) {
+				if (!categories.includes(cat)) {
+					categories.push(cat);
+				}
+			}
+		}
+
+		let categoriesHTML = ``;
+
+		categories.forEach(
+			cat => (categoriesHTML += `<li class="categories__item">${cat}</li>`)
+		);
+		categoriesContainer.innerHTML = categoriesHTML;
 	},
 	init: function () {
 		this.initPages();

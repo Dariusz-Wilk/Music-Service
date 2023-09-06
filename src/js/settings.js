@@ -5,6 +5,7 @@ export const select = {
 		songs: '.songs-container',
 		search: '.search__results-wrapper',
 		discover: '.discover__songs-wrapper',
+		categories: '.categories__list',
 	},
 	nav: {
 		navLinks: '.nav-link',
@@ -17,6 +18,7 @@ export const select = {
 	},
 	templateOf: {
 		menuSong: '#template-song-box',
+		categories: '#template-categories',
 	},
 };
 
