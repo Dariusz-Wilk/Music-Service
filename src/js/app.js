@@ -67,6 +67,7 @@ const app = {
 			this.initDiscover();
 			this.initSearching();
 			this.initCategories();
+			// this.initFilter();
 		} catch (err) {
 			console.err(err);
 		}
@@ -129,7 +130,6 @@ const app = {
 		const categoriesContainer = document.querySelector(
 			select.containerOf.categories
 		);
-		console.log(categoriesContainer);
 		const categories = [];
 
 		for (let song of this.data.songs) {
@@ -147,10 +147,30 @@ const app = {
 		);
 		categoriesContainer.innerHTML = categoriesHTML;
 	},
+	initFilter: function () {
+		const categoriesList = document.querySelector(
+			select.containerOf.categories
+		);
+
+		categoriesList.addEventListener('click', e => {
+			const clickedLink = e.target.closest('.categories__item');
+			if (!clickedLink) return;
+			if (clickedLink.classList.contains('active')) {
+				clickedLink.classList.remove('active');
+			} else {
+				const allActiveLinks = document.querySelectorAll(
+					'.categories__item.active'
+				);
+				allActiveLinks.forEach(link => link.classList.remove('active'));
+				clickedLink.classList.add('active');
+			}
+		});
+	},
 	init: function () {
 		this.initPages();
 		this.initData();
 		this.initModal();
+		this.initFilter();
 	},
 };
 

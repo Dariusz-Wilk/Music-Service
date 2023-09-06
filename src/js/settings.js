@@ -29,6 +29,9 @@ export const classNames = {
 	pages: {
 		active: 'active',
 	},
+	categories: {
+		active: 'active',
+	},
 };
 
 export const settings = {

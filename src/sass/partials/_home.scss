@@ -27,6 +27,10 @@
 		cursor: pointer;
 		letter-spacing: 1px;
 	}
+	&__item.active {
+		color: $color-main;
+		font-weight: 700;
+	}
 }
 
 // ======= songs =========
