@@ -10,6 +10,7 @@ class Song {
 	}
 
 	renderInMenu(songsContainer) {
+		// songsContainer.innerHTML = '';
 		const generatedHTML = templates.homePageSong(this.data);
 
 		this.element = utils.createDOMFromHTML(generatedHTML);

@@ -153,16 +153,39 @@ const app = {
 		);
 
 		categoriesList.addEventListener('click', e => {
+			const filteredSongs = [];
+			const songsContainer = document.querySelector(select.containerOf.songs);
 			const clickedLink = e.target.closest('.categories__item');
+			let allActiveLinks;
+
 			if (!clickedLink) return;
 			if (clickedLink.classList.contains('active')) {
 				clickedLink.classList.remove('active');
 			} else {
-				const allActiveLinks = document.querySelectorAll(
-					'.categories__item.active'
-				);
+				allActiveLinks = document.querySelectorAll('.categories__item.active');
 				allActiveLinks.forEach(link => link.classList.remove('active'));
 				clickedLink.classList.add('active');
+			}
+
+			this.data.songs.forEach(song => {
+				if (song.categories.includes(clickedLink.textContent)) {
+					filteredSongs.push(song);
+				}
+			});
+
+			songsContainer.innerHTML = '';
+
+			for (let song of filteredSongs) {
+				new Song(song, songsContainer);
+			}
+			this.initPlayer(select.containerOf.songs);
+
+			if (!allActiveLinks) {
+				songsContainer.innerHTML = '';
+				for (let song of this.data.songs) {
+					new Song(song, songsContainer);
+				}
+				this.initPlayer(select.containerOf.songs);
 			}
 		});
 	},
