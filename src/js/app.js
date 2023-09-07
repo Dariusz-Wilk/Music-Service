@@ -65,8 +65,8 @@ const app = {
 
 			this.initMenu();
 			this.initDiscover();
-			this.initSearching();
 			this.initCategories();
+			this.initSearching();
 			// this.initFilter();
 		} catch (err) {
 			console.err(err);
@@ -116,6 +116,14 @@ const app = {
 	},
 
 	initSearching: function () {
+		const searchSelectContainer = document.querySelector('.search__select');
+		let generatedHTML = '<option value=""></option>';
+
+		this.categories.forEach(category => {
+			generatedHTML += `<option value="${category}">${category}</option>`;
+		});
+
+		searchSelectContainer.innerHTML = generatedHTML;
 		const searchForm = document.querySelector('#search');
 		new Search(this.data, searchForm);
 	},
@@ -130,19 +138,19 @@ const app = {
 		const categoriesContainer = document.querySelector(
 			select.containerOf.categories
 		);
-		const categories = [];
+		this.categories = [];
 
 		for (let song of this.data.songs) {
 			for (let cat of song.categories) {
-				if (!categories.includes(cat)) {
-					categories.push(cat);
+				if (!this.categories.includes(cat)) {
+					this.categories.push(cat);
 				}
 			}
 		}
 
 		let categoriesHTML = ``;
 
-		categories.forEach(
+		this.categories.forEach(
 			cat => (categoriesHTML += `<li class="categories__item">${cat}</li>`)
 		);
 		categoriesContainer.innerHTML = categoriesHTML;
