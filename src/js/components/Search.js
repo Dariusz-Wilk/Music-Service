@@ -14,6 +14,7 @@ class Search {
 
 	getElements(searchForm) {
 		this.searchInput = searchForm.querySelector(select.searchForm.input);
+		this.searchSelect = searchForm.querySelector(select.searchForm.select);
 		this.searchBtn = searchForm.querySelector(select.searchForm.button);
 		this.resultContainer = searchForm.querySelector(
 			select.searchForm.resultContainer
@@ -34,6 +35,10 @@ class Search {
 			filteredAuthors.some(author => song.author === author.id)
 		);
 		this.filteredArr = [...new Set([...filteredSongs, ...songsByAuthor])];
+
+		this.doubleFiltered = this.filteredArr.filter(song =>
+			song.categories.includes(this.searchSelect.value)
+		);
 	}
 
 	initAction() {
@@ -44,12 +49,16 @@ class Search {
 				this.searchResultText.textContent = `please enter at least one character`;
 			} else {
 				this.initSearch();
+				this.filteredArr =
+					this.searchSelect.value === ''
+						? this.filteredArr
+						: this.doubleFiltered;
 				this.searchResultText.textContent = `We have found ${
 					this.filteredArr.length
 				} ${this.filteredArr.length == 1 ? 'song...' : 'songs...'}`;
 
 				this.resultContainer.innerHTML = '';
-				for (let item of this.filteredArr.flat()) {
+				for (let item of this.filteredArr) {
 					new Song(item, this.resultContainer);
 				}
 				this.initPlayer(select.containerOf.search);

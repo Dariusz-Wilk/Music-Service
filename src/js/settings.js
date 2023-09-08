@@ -13,6 +13,7 @@ export const select = {
 	searchForm: {
 		input: '.search__input',
 		button: '.search__btn',
+		select: '.search__select',
 		resultContainer: '.search__results-wrapper',
 		resultText: '.search__result-text',
 	},
