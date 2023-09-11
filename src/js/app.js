@@ -67,7 +67,7 @@ const app = {
 			this.initDiscover();
 			this.initCategories();
 			this.initSearching();
-			// this.initFilter();
+			this.initMostPLayedSong();
 		} catch (err) {
 			console.err(err);
 		}
@@ -195,6 +195,39 @@ const app = {
 				}
 				this.initPlayer(select.containerOf.songs);
 			}
+		});
+	},
+
+	initMostPLayedSong: function () {
+		const songsWrapper = document.querySelector(select.containerOf.songs);
+		const songsElement = songsWrapper.querySelectorAll('.home__song-wrapper');
+		this.listenedCategories = [];
+
+		songsElement.forEach(song => {
+			const audio = song.querySelector('audio');
+
+			audio.addEventListener('play', e => {
+				e.preventDefault();
+				const audioCategories = song
+					.querySelector('.categories-name')
+					.textContent.toLowerCase()
+					.split(', ');
+
+				audioCategories.forEach(cat => {
+					if (!this.listenedCategories[cat]) {
+						this.listenedCategories[cat] = 1;
+					} else {
+						this.listenedCategories[cat]++;
+					}
+				});
+				const values = Object.entries(this.listenedCategories).map(
+					item => item[1]
+				);
+				const mostListenedCategory = Object.entries(
+					this.listenedCategories
+				).find(item => item[1] === Math.max(...values));
+				console.log(`mostListentCategory: `, mostListenedCategory[0]);
+			});
 		});
 	},
 	init: function () {
