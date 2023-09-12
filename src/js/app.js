@@ -25,7 +25,7 @@ const app = {
 		for (let link of this.navLinks) {
 			link.addEventListener('click', e => {
 				if (link.hash == '#discover') {
-					this.initDiscover();
+					// this.initDiscover();
 				}
 				e.preventDefault();
 				const linkId = link.hash.replace('#', '');
@@ -64,7 +64,7 @@ const app = {
 			this.data.authors = authors;
 
 			this.initMenu();
-			this.initDiscover();
+			// this.initDiscover();
 			this.initCategories();
 			this.initSearching();
 			this.initMostPLayedSong();
@@ -201,6 +201,9 @@ const app = {
 	initMostPLayedSong: function () {
 		const songsWrapper = document.querySelector(select.containerOf.songs);
 		const songsElement = songsWrapper.querySelectorAll('.home__song-wrapper');
+		const discoverContainer = document.querySelector(
+			select.containerOf.discover
+		);
 		this.listenedCategories = [];
 
 		songsElement.forEach(song => {
@@ -226,7 +229,19 @@ const app = {
 				const mostListenedCategory = Object.entries(
 					this.listenedCategories
 				).find(item => item[1] === Math.max(...values));
-				console.log(`mostListentCategory: `, mostListenedCategory[0]);
+				const mostListenedCategoryCamelCase =
+					mostListenedCategory[0].slice(0, 1).toUpperCase() +
+					mostListenedCategory[0].slice(1);
+
+				const favCategorySongs = this.data.songs.filter(song => {
+					return song.categories.includes(mostListenedCategoryCamelCase);
+				});
+
+				new Discover(
+					favCategorySongs,
+					discoverContainer,
+					mostListenedCategoryCamelCase
+				);
 			});
 		});
 	},

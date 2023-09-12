@@ -4,7 +4,8 @@ export const select = {
 		pages: '.pages',
 		songs: '.songs-container',
 		search: '.search__results-wrapper',
-		discover: '.discover__songs-wrapper',
+		discover: '.discover__container',
+		discoverSong: '.discover__songs-wrapper',
 		categories: '.categories__list',
 	},
 	nav: {
@@ -16,6 +17,9 @@ export const select = {
 		select: '.search__select',
 		resultContainer: '.search__results-wrapper',
 		resultText: '.search__result-text',
+	},
+	discover: {
+		discoverInfo: '.discover__text',
 	},
 	templateOf: {
 		menuSong: '#template-song-box',

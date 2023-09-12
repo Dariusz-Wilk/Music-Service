@@ -162,6 +162,11 @@
 }
 
 @media (max-width: 768px) {
+	.categories {
+		&__item {
+			font-size: 18px;
+		}
+	}
 	.home {
 		&__song-wrapper {
 			margin: 0 auto 60px;
@@ -196,6 +201,16 @@
 }
 
 @media (max-width: 432px) {
+	.categories {
+		margin-top: 20px;
+		padding: 0 10px;
+		&__list {
+			flex-wrap: wrap;
+		}
+		&__item {
+			font-size: 16px;
+		}
+	}
 	.home {
 		&__song-wrapper {
 			margin: 0 auto 60px;
