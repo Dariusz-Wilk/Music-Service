@@ -195,6 +195,7 @@ const app = {
 				}
 				this.initPlayer(select.containerOf.songs);
 			}
+			this.initMostPLayedSong();
 		});
 	},
 
